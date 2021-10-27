@@ -1,0 +1,9 @@
+openapi: 3.0.3
+info:
+  title: Users
+  description: Users
+  version: 1.0.0
+servers:
+  - url: 'https://api.{domain}/v1/users'
+paths:
+  

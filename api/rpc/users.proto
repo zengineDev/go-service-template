@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package grpc.service.users.v1;
+
+import "google/protobuf/timestamp.proto";
+
+service Users {
+  rpc Store(User) returns (User);
+}
+
+message User {
+  string name = 1;
+  int32 id = 2;
+  optional string email = 3;
+}
