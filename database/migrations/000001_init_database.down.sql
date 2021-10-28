@@ -1,0 +1,3 @@
+DROP SCHEMA data CASCADE;
+DROP EXTENSION pgcrypto;
+DROP EXTENSION timescaledb;

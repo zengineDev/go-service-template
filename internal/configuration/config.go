@@ -9,7 +9,8 @@ import (
 )
 
 type DefaultConfiguration struct {
-	App AppConfig `json:"app" yaml:"app"`
+	App AppConfig      `json:"app" yaml:"app"`
+	DB  DatabaseConfig `json:"db" yaml:"db"`
 }
 
 var (
@@ -59,4 +60,12 @@ func LoadConfigs(cfg *DefaultConfiguration) *DefaultConfiguration {
 
 	return instance
 
+}
+
+func GetConfig() *DefaultConfiguration {
+	if instance == nil {
+		LoadConfigs(&DefaultConfiguration{})
+	}
+
+	return instance
 }
