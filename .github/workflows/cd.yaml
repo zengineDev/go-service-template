@@ -1,0 +1,39 @@
+name: Build a docker image from release
+
+on:
+  release:
+    types: [published]
+    branches:
+      - main
+
+jobs:
+
+  build-rpc:
+    uses: zenginedev/workflows/.github/workflows/cd-go.yml@main
+    with:
+      name: Digiversity Profils gRPC Server
+      cmd: rpc
+      dockerfile: './build/docker/rpc/Dockerfile'
+      image: ghcr.io/zenginedev/digiversity-profiles-rpc
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+
+  build-cli:
+    uses: zenginedev/workflows/.github/workflows/cd-go.yml@main
+    with:
+      name: Digiversity Profiles CLI
+      cmd: cli
+      dockerfile: './build/docker/cli/Dockerfile'
+      image: ghcr.io/zenginedev/digiversity-profiles-cli
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+
+  build-graphQL:
+    uses: zenginedev/workflows/.github/workflows/cd-go.yml@main
+    with:
+      name: Digiversity Profiles GraphQL
+      cmd: graphQL
+      dockerfile: './build/docker/graphQL/Dockerfile'
+      image: ghcr.io/zenginedev/digiversity-profiles-graphql
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}

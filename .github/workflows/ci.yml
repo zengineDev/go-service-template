@@ -1,0 +1,12 @@
+name: Build and Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  running-linter-and-tests:
+    uses: zengineDev/workflows/.github/workflows/ci-go.yml@main
+    secrets:
+      token: ${{ secrets.GH_PRIVATE_TOKEN }}

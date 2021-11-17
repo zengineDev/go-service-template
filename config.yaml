@@ -1,6 +1,14 @@
 app:
-  env: "development"
+  environment: "development"
+  port: 5000
 
 nats:
   url: ""
 
+db:
+  host: localhost
+  port: "5432"
+  user: user
+  database: "database"
+  password: "password"
+  SSLMode: "disable"
